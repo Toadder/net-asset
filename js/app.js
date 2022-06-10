@@ -18,7 +18,7 @@ const ymap = () => {
         {
           // Hint
           hintContent: "Net Asset",
-          balloonContent: "г. Сочи, ул. Водораздельная, д. 5",
+          balloonContent: "г. Сочи, ул. Водораздельная, д. 5/1",
         },
         {
           iconLayout: "default#image",
