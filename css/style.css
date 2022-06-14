@@ -1581,8 +1581,12 @@ input._error {
   }
 
   .item-cost__subtitle {
-    font-size: 17px;
+    font-size: 16px;
     margin-bottom: 5px;
+  }
+
+  .item-cost__list li {
+    font-size: 13.5px;
   }
 
   .earnings {
