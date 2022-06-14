@@ -7,14 +7,14 @@ const ymap = () => {
 
     ymaps.ready(function () {
       let map = new ymaps.Map("ymap", {
-        center: [43.58324705154944, 39.76302559325398],
+        center: [43.58272357456786, 39.76034150000001],
         zoom: 19,
         controls: ["zoomControl"],
         behaviors: ["drag"],
       });
 
       let placemark = new ymaps.Placemark(
-        [43.58324705154944, 39.76302559325398],
+        [43.58272357456786, 39.76034150000001],
         {
           // Hint
           hintContent: "Net Asset",
