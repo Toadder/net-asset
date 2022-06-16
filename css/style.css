@@ -1031,6 +1031,95 @@ input._error {
   margin-bottom: 32px;
 }
 
+.popup-download {
+}
+
+.popup-download__body {
+}
+
+.popup-download__content {
+  padding: 30px;
+  max-width: 875px;
+}
+
+.popup-download__close {
+  top: 20px;
+  right: 20px;
+}
+
+.popup-download__title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.popup-download__subtitle {
+  font-size: 26px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.popup-download__form {
+}
+
+.popup-download__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.popup-download__item,
+.popup-download__checkbox {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.popup-download__item.popup-download__item_mail {
+  display: none;
+}
+
+.popup-download__btn {
+  max-width: 600px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.radio-form {
+}
+.radio-form input {
+  display: none;
+}
+
+.radio-form input:checked + .radio-form__card {
+  background-color: #34ab47;
+}
+
+.radio-form__card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #042742;
+  color: #fff;
+  justify-content: center;
+  border-radius: 10px;
+  min-height: 60px;
+  transition: 0.3s background-color ease;
+  cursor: pointer;
+}
+.radio-form__icon {
+  margin-right: 10px;
+}
+.radio-form__icon svg {
+  fill: white !important;
+}
+.radio-form__title {
+}
+
 .quality {
   margin-bottom: 120px;
 }
@@ -1377,6 +1466,18 @@ input._error {
   .popup__close {
     top: 20px;
     right: 20px;
+  }
+
+  .popup-download__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .popup-download__title {
+    font-size: 27px;
+  }
+
+  .popup-download__subtitle {
+    font-size: 22px;
   }
 
   .quality {
@@ -1839,6 +1940,54 @@ input._error {
   .popup__text {
     margin-bottom: 16px;
     font-size: 18px;
+  }
+
+  .popup-download__content {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .popup-download__grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 16px;
+  }
+
+  .popup-download__title,
+  .popup-download__subtitle {
+    font-size: 18px;
+  }
+
+  .popup-download__close {
+    top: 8px;
+    right: 13px;
+  }
+
+  .radio-form__card {
+    font-size: 15px;
+  }
+
+  .radio-form:nth-child(1) svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .radio-form:nth-child(2) svg,
+  .radio-form:nth-child(3) svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .radio-form:nth-child(4) svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .radio-form__icon {
+    margin-right: 7.5px;
+  }
+
+  .radio-form__card {
+    min-height: 44px;
   }
 
   .quality {
