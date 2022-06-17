@@ -1051,6 +1051,10 @@ input._error {
 .popup-download__body {
 }
 
+.popup-thanks__content {
+  min-width: 220px;
+}
+
 .popup-thanks__title {
   margin-bottom: 0;
 }
