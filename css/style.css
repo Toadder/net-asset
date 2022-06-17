@@ -221,7 +221,7 @@ body._lock {
 }
 
 input._error {
-  border: 1px solid red;
+  border: 1px solid #2e973f !important;
 }
 
 .lazy-image {
@@ -303,6 +303,10 @@ input._error {
   margin-bottom: 32px;
 }
 
+.form__checkbox._error label::before {
+  border: 1px solid #2e973f;
+}
+
 .form__checkbox input {
   display: none;
 }
@@ -375,8 +379,7 @@ input._error {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.3s ease 0s, opacity 0.3s ease 0s,
-    visibility 0.3s ease;
+  transition: all 0.3s ease 0s, visibility 0.3s ease;
   pointer-events: auto;
   visibility: visible;
   position: absolute;
@@ -453,6 +456,12 @@ input._error {
   margin-bottom: 8px;
 }
 
+.slide-collaboration__list_spoiler {
+  display: none;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
 .slide-collaboration__flex {
   margin-top: 22px;
   display: flex;
@@ -464,6 +473,11 @@ input._error {
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
+}
+
+.slide-collaboration__text_trigger {
+  cursor: pointer;
+  transition: opacity 0.3s ease 0s;
 }
 
 .slide-collaboration__icon {
@@ -1037,6 +1051,21 @@ input._error {
 .popup-download__body {
 }
 
+.popup-thanks__title {
+  margin-bottom: 0;
+}
+
+.popup-thanks__link {
+  font-size: 27px;
+  text-decoration: underline;
+  text-align: center;
+  color: #042742;
+  font-weight: 500;
+  margin: 16px auto 0;
+  display: inline-block;
+  display: none;
+}
+
 .popup-download__content {
   padding: 30px;
   max-width: 875px;
@@ -1545,6 +1574,10 @@ input._error {
   .work__row:not(:last-child) {
     margin-bottom: 18px;
     padding-bottom: 18px;
+  }
+
+  .popup-thanks__link {
+    font-size: 24px;
   }
 }
 
@@ -2093,6 +2126,14 @@ input._error {
   .work {
     width: 100%;
   }
+
+  .popup-thanks__content {
+    padding: 25px;
+  }
+
+  .popup-thanks__link {
+    font-size: 20px;
+  }
 }
 
 @media (any-hover: hover) {
@@ -2151,6 +2192,10 @@ input._error {
 
   .work__consultanct:active {
     background-color: #d9d9d9;
+  }
+
+  .slide-collaboration__text_trigger:hover {
+    opacity: 0.8;
   }
 }
 

@@ -1,3 +1,36 @@
+// Animations
+function _fadeIn(el) {
+  var opacity = 0.1;
+
+  el.style.opacity = opacity;
+  el.style.display = "block";
+
+  var timer = setInterval(function () {
+    if (opacity >= 1) {
+      clearInterval(timer);
+    }
+
+    el.style.opacity = opacity;
+
+    opacity += opacity * 0.1;
+  }, 15);
+}
+
+function _fadeOut(el) {
+  var opacity = 1;
+
+  var timer = setInterval(function () {
+    if (opacity <= 0.1) {
+      clearInterval(timer);
+      el.style.display = "none";
+    }
+
+    el.style.opacity = opacity;
+
+    opacity -= opacity * 0.1;
+  }, 15);
+}
+
 // Ymap
 const ymap = () => {
   let sectionMap = document.querySelector(".map");
@@ -53,108 +86,6 @@ const ymap = () => {
     document.body.appendChild(script);
     script.onload = ymapInit;
   }
-};
-
-// Popup
-const popup = () => {
-  const popupLinks = document.querySelectorAll(".popup-link");
-  const body = document.querySelector("body");
-  const lockPadding = document.querySelectorAll(".lock-padding");
-  let unlock = true;
-  const timeout = 500;
-
-  if (popupLinks.length > 0) {
-    for (let index = 0; index < popupLinks.length; index++) {
-      const popupLink = popupLinks[index];
-      popupLink.addEventListener("click", function (e) {
-        const popupName = popupLink.getAttribute("href").replace("#", "");
-        const currentPopup = document.getElementById(popupName);
-        popupOpen(currentPopup);
-        e.preventDefault();
-      });
-    }
-  }
-
-  const popupCloseIcon = document.querySelectorAll(".close-popup");
-  if (popupCloseIcon.length > 0) {
-    for (let index = 0; index < popupCloseIcon.length; index++) {
-      const el = popupCloseIcon[index];
-      el.addEventListener("click", function (e) {
-        popupClose(el.closest(".popup"));
-        e.preventDefault();
-      });
-    }
-  }
-
-  function popupOpen(currentPopup) {
-    if (currentPopup && unlock) {
-      const popupActive = document.querySelector(".popup.open");
-      if (popupActive) {
-        popupClose(popupActive, false);
-      } else {
-        bodyLock();
-      }
-      currentPopup.classList.add("open");
-      currentPopup.addEventListener("click", function (e) {
-        if (!e.target.closest(".popup__content")) {
-          popupClose(e.target.closest(".popup"));
-        }
-      });
-    }
-  }
-
-  function popupClose(popupActive, doUnlock = true) {
-    if (unlock) {
-      popupActive.classList.remove("open");
-      if (doUnlock) {
-        bodyUnlock();
-      }
-    }
-  }
-
-  function bodyLock() {
-    const lockPaddingValue =
-      window.innerWidth - document.querySelector(".wrapper").offsetWidth + "px";
-
-    if (lockPadding.length > 0) {
-      for (let index = 0; index < lockPadding.length; index++) {
-        const el = lockPadding[index];
-        el.style.paddingRight = lockPaddingValue;
-      }
-    }
-    body.style.paddingRight = lockPaddingValue;
-    body.classList.add("_lock");
-
-    unlock = false;
-    setTimeout(function () {
-      unlock = true;
-    }, timeout);
-  }
-
-  function bodyUnlock() {
-    setTimeout(function () {
-      if (lockPadding.length > 0) {
-        for (let index = 0; index < lockPadding.length; index++) {
-          const el = lockPadding[index];
-          el.style.paddingRight = "0px";
-        }
-      }
-      body.style.paddingRight = "0px";
-      body.classList.remove("_lock");
-    }, timeout);
-
-    unlock = false;
-    setTimeout(function () {
-      unlock = true;
-    }, timeout);
-  }
-
-  document.addEventListener("keydown", function (e) {
-    if (e.which === 27) {
-      const popupActive = document.querySelector(".popup.open");
-      popupClose(popupActive);
-    }
-  });
 };
 
 // Slider
@@ -297,7 +228,6 @@ const checkDownloadRadios = () => {
   }
 };
 
-// Phone Mask
 // Phone mask
 const phoneMask = () => {
   let phoneInputs = document.querySelectorAll("input[data-tel-input]");
@@ -379,12 +309,211 @@ const phoneMask = () => {
   }
 };
 
+// Open info in slider
+const openInfo = () => {
+  const triggers = document.querySelectorAll(
+    ".slide-collaboration__text_trigger"
+  );
+
+  if (triggers.length > 0) {
+    for (let index = 0; index < triggers.length; index++) {
+      const trigger = triggers[index];
+
+      trigger.addEventListener("click", () => {
+        const parent = trigger.closest(".collaboration__slide");
+        const spoiler = parent.querySelector(
+          ".slide-collaboration__list_spoiler"
+        );
+
+        if (trigger.classList.contains("clicked")) {
+          _fadeOut(spoiler);
+          trigger.classList.remove("clicked");
+        } else {
+          _fadeIn(spoiler);
+          trigger.classList.add("clicked");
+        }
+      });
+    }
+  }
+};
+
 window.onload = () => {
   isWebp();
   checkDownloadRadios();
   slider();
-  popup();
+  openInfo();
   ymap();
   lazyload();
   phoneMask();
+
+  // Popup
+  const popupLinks = document.querySelectorAll(".popup-link");
+  const body = document.querySelector("body");
+  const lockPadding = document.querySelectorAll(".lock-padding");
+  let unlock = true;
+  const timeout = 500;
+
+  if (popupLinks.length > 0) {
+    for (let index = 0; index < popupLinks.length; index++) {
+      const popupLink = popupLinks[index];
+      popupLink.addEventListener("click", function (e) {
+        const popupName = popupLink.getAttribute("href").replace("#", "");
+        const currentPopup = document.getElementById(popupName);
+        popupOpen(currentPopup);
+        e.preventDefault();
+      });
+    }
+  }
+
+  const popupCloseIcon = document.querySelectorAll(".close-popup");
+  if (popupCloseIcon.length > 0) {
+    for (let index = 0; index < popupCloseIcon.length; index++) {
+      const el = popupCloseIcon[index];
+      el.addEventListener("click", function (e) {
+        popupClose(el.closest(".popup"));
+        e.preventDefault();
+      });
+    }
+  }
+
+  function popupOpen(currentPopup) {
+    if (currentPopup && unlock) {
+      const popupActive = document.querySelector(".popup.open");
+      if (popupActive) {
+        popupClose(popupActive, false);
+      } else {
+        bodyLock();
+      }
+      currentPopup.classList.add("open");
+      currentPopup.addEventListener("click", function (e) {
+        if (!e.target.closest(".popup__content")) {
+          popupClose(e.target.closest(".popup"));
+        }
+      });
+    }
+  }
+
+  function popupClose(popupActive, doUnlock = true) {
+    if (unlock) {
+      popupActive.classList.remove("open");
+      if (doUnlock) {
+        bodyUnlock();
+      }
+    }
+  }
+
+  function bodyLock() {
+    const lockPaddingValue =
+      window.innerWidth - document.querySelector(".wrapper").offsetWidth + "px";
+
+    if (lockPadding.length > 0) {
+      for (let index = 0; index < lockPadding.length; index++) {
+        const el = lockPadding[index];
+        el.style.paddingRight = lockPaddingValue;
+      }
+    }
+    body.style.paddingRight = lockPaddingValue;
+    body.classList.add("_lock");
+
+    unlock = false;
+    setTimeout(function () {
+      unlock = true;
+    }, timeout);
+  }
+
+  function bodyUnlock() {
+    setTimeout(function () {
+      if (lockPadding.length > 0) {
+        for (let index = 0; index < lockPadding.length; index++) {
+          const el = lockPadding[index];
+          el.style.paddingRight = "0px";
+        }
+      }
+      body.style.paddingRight = "0px";
+      body.classList.remove("_lock");
+    }, timeout);
+
+    unlock = false;
+    setTimeout(function () {
+      unlock = true;
+    }, timeout);
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.which === 27) {
+      const popupActive = document.querySelector(".popup.open");
+      popupClose(popupActive);
+    }
+  });
+  // Popup
+
+  // Form Check
+  const formAddError = (el) => {
+    el.classList.add("_error");
+    el.parentElement.classList.add("_error");
+  };
+
+  const formRemoveError = (el) => {
+    el.classList.remove("_error");
+    el.parentElement.classList.remove("_error");
+  };
+
+  // Валидация Email
+  const emailTest = (input) => {
+    const re =
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(input.value);
+  };
+
+  // Form Validation & Send
+  const forms = document.querySelectorAll("form");
+  for (var i = 0; i < forms.length; i++) {
+    form = forms[i];
+
+    form.addEventListener("submit", formSend);
+  }
+  async function formSend(e) {
+    e.preventDefault();
+
+    let error = formValidate(this);
+
+    if (error === 0) {
+      const popupThanks = document.querySelector('.popup-thanks');
+      const popupLink = popupThanks.querySelector('.popup-thanks__link');
+      if(this.closest('.popup-download')) {
+        popupLink.style.display = 'inline-block';
+      } else {
+        popupLink.style.display = "none";
+      }
+      popupOpen(popupThanks);
+    }
+  }
+  function formValidate(form) {
+    let error = 0;
+    let formReq = form.querySelectorAll("._req");
+
+    for (var i = 0; i < formReq.length; i++) {
+      const input = formReq[i];
+      const parent = input.parentElement;
+      formRemoveError(input);
+
+      if (window.getComputedStyle(parent).display !== "none") {
+        if (input.classList.contains("_email")) {
+          if (!emailTest(input)) {
+            formAddError(input);
+            error++;
+          }
+        } else if (input.value == "") {
+          formAddError(input);
+          error++;
+        } else if (input.type === "checkbox" && !input.checked) {
+          formAddError(input);
+          error++;
+        }
+      }
+    }
+
+    return error;
+  }
+  // Form Check
 };

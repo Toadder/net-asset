@@ -10,7 +10,7 @@
       href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20220610192306"
     />
     <!-- STYLES -->
-    <link rel="stylesheet" href="css/style.min.css?_v=20221061012312306" />
+    <link rel="stylesheet" href="css/style.min.css?_v=20211061012312306" />
   </head>
 
   <body>
@@ -132,9 +132,20 @@
                         </li>
                       </ul>
                       <div class="slide-collaboration__flex">
-                        <p class="slide-collaboration__text">Наши услуги</p>
+                        <p class="slide-collaboration__text slide-collaboration__text_trigger">Подробнее</p>
                         <div class="slide-collaboration__icon"></div>
                       </div>
+                      <ul class="slide-collaboration__list slide-collaboration__list_spoiler">
+                        <li>
+                          Договор с собственником можем заключить удалённо, контролируем все платежи;
+                        </li>
+                        <li>
+                          Вы можете находиться в любой части мира. Мы контролируем весь процесс аренды квартиры.
+                        </li>
+                        <li>
+                          Регулярно проводим осмотры объекта и предоставляем отчёт.
+                        </li>
+                      </ul>
                     </div>
 
                     <div
@@ -176,9 +187,20 @@
                         <li>Не готовы решать конфликтные ситуации.</li>
                       </ul>
                       <div class="slide-collaboration__flex">
-                        <p class="slide-collaboration__text">Подробнее</p>
+                        <p class="slide-collaboration__text slide-collaboration__text_trigger">Подробнее</p>
                         <div class="slide-collaboration__icon"></div>
                       </div>
+                      <ul class="slide-collaboration__list slide-collaboration__list_spoiler">
+                        <li>
+                           Страхуем объект по всем рискам (пожар, потоп, порча имущества и т.д.), отвечаем за сохранность имущества и его состояние;
+                        </li>
+                        <li>
+                           Проверяем каждого гостя по специализированным реестрам неблагонадежных арендаторов;
+                        </li>
+                        <li>
+                          Решаем все конфликтные ситуации.
+                        </li>
+                      </ul>
                     </div>
 
                     <div
@@ -195,9 +217,20 @@
                         <li>Хотите пассивный доход без личного участия</li>
                       </ul>
                       <div class="slide-collaboration__flex">
-                        <p class="slide-collaboration__text">Подробнее</p>
+                        <p class="slide-collaboration__text slide-collaboration__text_trigger">Подробнее</p>
                         <div class="slide-collaboration__icon"></div>
                       </div>
+                      <ul class="slide-collaboration__list slide-collaboration__list_spoiler">
+                        <li>
+                           Обеспечиваем доходность объекта на 50% выше, в отличие от самостоятельной сдачи;
+                        </li>
+                        <li>
+                           Обеспечиваем загрузку объекта на уровне 90% в год;
+                        </li>
+                        <li>
+                          Обеспечиваем полное управление без лишних проблем.
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -610,16 +643,16 @@
                 </p>
                 <form class="quality__form form">
                   <div class="quality__item form__item">
-                    <input type="text" placeholder="Имя" />
+                    <input type="text" placeholder="Имя" class="_req" />
                   </div>
                   <div class="quality__item form__item">
-                    <input type="tel" data-tel-input placeholder="Телефон" />
+                    <input class="_req" type="tel" data-tel-input placeholder="Телефон" />
                   </div>
                   <div class="quality__item form__item">
-                    <input type="email" placeholder="Email" />
+                    <input class="_req _email" type="email" placeholder="Email" />
                   </div>
                   <div class="quality__checkbox form__checkbox">
-                    <input id="qualityCheckbox" type="checkbox" checked />
+                    <input class="_req" id="qualityCheckbox" type="checkbox" checked />
                     <label for="qualityCheckbox">
                       <span>
                         Нажимая на кнопку «Оставить заявку», я даю согласие на
@@ -706,7 +739,7 @@
                 </svg>
               </a>
               <a
-                href="https://www.youtube.com/channel/UCPlVJUD4gHHlx_Ug8W1T0-Q)"
+                href="https://www.youtube.com/channel/UCPlVJUD4gHHlx_Ug8W1T0-Q"
                 class="footer__icon"
               >
                 <svg
@@ -722,21 +755,6 @@
                     opacity="0.8"
                     d="m23.469 5.929.03.196c-.29-1.029-1.073-1.823-2.068-2.112l-.021-.005c-1.871-.508-9.4-.508-9.4-.508s-7.51-.01-9.4.508c-1.014.294-1.798 1.088-2.083 2.096l-.005.021c-.699 3.651-.704 8.038.031 11.947l-.031-.198c.29 1.029 1.073 1.823 2.068 2.112l.021.005c1.869.509 9.4.509 9.4.509s7.509 0 9.4-.509c1.015-.294 1.799-1.088 2.084-2.096l.005-.021c.318-1.698.5-3.652.5-5.648 0-.073 0-.147-.001-.221.001-.068.001-.149.001-.23 0-1.997-.182-3.951-.531-5.846zm-13.861 9.722v-7.293l6.266 3.652z"
                   ></path>
-                </svg>
-              </a>
-              <a href="#!" class="footer__icon">
-                <svg
-                  width="10"
-                  height="18"
-                  viewBox="0 0 10 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    opacity="0.8"
-                    d="M0.287844 9.3205H2.24409V17.2177C2.24409 17.3737 2.37293 17.5 2.53193 17.5H5.84881C6.00782 17.5 6.13666 17.3737 6.13666 17.2177V9.3577H8.38552C8.53175 9.3577 8.65477 9.2501 8.67147 9.10767L9.01302 6.2003C9.02241 6.12031 8.99656 6.04021 8.94198 5.9802C8.88735 5.92014 8.80917 5.88576 8.72714 5.88576H6.13677V4.06327C6.13677 3.51389 6.43843 3.2353 7.03346 3.2353C7.11826 3.2353 8.72714 3.2353 8.72714 3.2353C8.88614 3.2353 9.01498 3.1089 9.01498 2.95304V0.284347C9.01498 0.128427 8.88614 0.00208871 8.72714 0.00208871H6.39301C6.37655 0.00129839 6.33999 0 6.28611 0C5.88111 0 4.47338 0.0779597 3.36138 1.0811C2.1293 2.19275 2.30056 3.52377 2.34149 3.75454V5.8857H0.287844C0.128839 5.8857 0 6.01204 0 6.16796V9.03818C0 9.1941 0.128839 9.3205 0.287844 9.3205Z"
-                    fill="white"
-                  />
                 </svg>
               </a>
             </div>
@@ -768,16 +786,16 @@
           </p>
           <form class="popup__form form">
             <div class="popup__item form__item">
-              <input type="text" placeholder="Имя" />
+              <input class="_req" type="text" placeholder="Имя" />
             </div>
             <div class="popup__item form__item">
-              <input type="tel" data-tel-input placeholder="Телефон" />
+              <input class="_req"type="tel" data-tel-input placeholder="Телефон" />
             </div>
             <div class="popup__item form__item">
-              <input type="email" placeholder="Email" />
+              <input class="_req _email"type="email" placeholder="Email" />
             </div>
             <div class="popup__checkbox form__checkbox">
-              <input id="popupCheckbox" type="checkbox" checked />
+              <input class="_req" id="popupCheckbox" type="checkbox" checked />
               <label for="popupCheckbox">
                 <span>
                   Нажимая на кнопку «Оставить заявку», я даю согласие на
@@ -794,6 +812,26 @@
       </div>
     </div>
     <!-- /.popup -->
+
+    <!-- .popup-thanks -->
+    <div class="popup popup-thanks" id="popupThanks">
+      <div class="popup__body popup-thanks__body">
+        <div class="popup__content popup-thanks__content">
+          <div class="popup__close popup-thanks__close close-popup">
+            <svg viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M19.3334 2.54669L17.4534 0.666687L10.0001 8.12002L2.54675 0.666687L0.666748 2.54669L8.12008 10L0.666748 17.4534L2.54675 19.3334L10.0001 11.88L17.4534 19.3334L19.3334 17.4534L11.8801 10L19.3334 2.54669Z"
+              />
+            </svg>
+          </div>
+          <h2 class="popup__title title popup-thanks__title">Спасибо!</h2>
+          <a href="https://disk.yandex.ru/i/rpSdY-J05ZtkiQ" class="popup-thanks__link">
+            Скачать презентацию
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- /.popup-thanks -->
 
     <!-- .popup -->
     <div class="popup popup-download" id="popupDownload">
@@ -870,16 +908,16 @@
               Контактные данные
             </div>
             <div class="popup-download__item form__item">
-              <input type="text" placeholder="Имя" />
+              <input class="_req" type="text" placeholder="Имя" />
             </div>
             <div class="popup-download__item form__item">
-              <input type="tel" data-tel-input placeholder="Телефон" />
+              <input class="_req" type="tel" data-tel-input placeholder="Телефон" />
             </div>
             <div class="popup-download__item form__item popup-download__item_mail">
-              <input type="email" placeholder="Email" />
+              <input class="_req _email" type="email" placeholder="Email" />
             </div>
             <div class="popup-download__checkbox form__checkbox">
-              <input id="popupDownloadCheckbox" type="checkbox" checked />
+              <input class="_req" id="popupDownloadCheckbox" type="checkbox" checked />
               <label for="popupDownloadCheckbox">
                 <span>
                   Нажимая на кнопку «Оставить заявку», я даю согласие на
@@ -900,6 +938,6 @@
     <!-- SWIPER -->
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20220610172306"></script>
     <!-- SCRIPTS -->
-    <script src="js/app.min.js?_v=202206101782311"></script>
+    <script src="js/app.min.js?_v=202106101782311"></script>
   </body>
 </html>
